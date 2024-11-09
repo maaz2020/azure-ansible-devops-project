@@ -123,6 +123,6 @@ resource "azurerm_linux_virtual_machine" "http_server" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file(pathexpand(var.azure_public_ssh_key))
+    public_key = file("~/.ssh/id_rsa.pub")
   }
 }
