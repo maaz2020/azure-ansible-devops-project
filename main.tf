@@ -116,12 +116,17 @@ resource "azurerm_linux_virtual_machine" "http_server" {
   location                        = azurerm_resource_group.microservice.location
   size                            = "Standard_B1s" # Equivalent to t2.micro in AWS
   admin_username                  = "adminuser"
-  admin_password                  = "Maaz@1234"
-  disable_password_authentication = false
+  # admin_password                  = "Maaz@1234"
+  disable_password_authentication = true
 
   network_interface_ids = [
     azurerm_network_interface.http_server_nic[count.index].id,
   ]
+
+    admin_ssh_key {
+    username   = "adminuser"
+    public_key = file("/home/saad/.ssh/id_rsa.pub") # Replace with the correct path to the public key
+  }
 
   os_disk {
     caching              = "ReadWrite"
