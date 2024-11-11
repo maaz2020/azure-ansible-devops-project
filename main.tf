@@ -110,12 +110,12 @@ resource "azurerm_public_ip" "microservice" {
 
 # Virtual Machine Instances
 resource "azurerm_linux_virtual_machine" "http_server" {
-  count                           = 2
-  name                            = "httpServerVM-${count.index}"
-  resource_group_name             = azurerm_resource_group.microservice.name
-  location                        = azurerm_resource_group.microservice.location
-  size                            = "Standard_B1s" # Equivalent to t2.micro in AWS
-  admin_username                  = "adminuser"
+  count               = 2
+  name                = "httpServerVM-${count.index}"
+  resource_group_name = azurerm_resource_group.microservice.name
+  location            = azurerm_resource_group.microservice.location
+  size                = "Standard_B1s" # Equivalent to t2.micro in AWS
+  admin_username      = "adminuser"
   # admin_password                  = "Maaz@1234"
   disable_password_authentication = true
 
@@ -123,9 +123,9 @@ resource "azurerm_linux_virtual_machine" "http_server" {
     azurerm_network_interface.http_server_nic[count.index].id,
   ]
 
-    admin_ssh_key {
+  admin_ssh_key {
     username   = "adminuser"
-    public_key = file("/home/saad/.ssh/id_rsa.pub") # Replace with the correct path to the public key
+    public_key = file("/home/saad/azure-ansible-devops-project/ansible-server_key.pem.pub") # Replace with the correct path to the public key
   }
 
   os_disk {
