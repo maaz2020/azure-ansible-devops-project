@@ -13,7 +13,7 @@
 # Resource Group
 resource "azurerm_resource_group" "microservice" {
   name     = "microservice-resources"
-  location = "East US 2"
+  location = "eastus"
 }
 
 # Virtual Network
@@ -125,7 +125,7 @@ resource "azurerm_linux_virtual_machine" "http_server" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("/home/saad/azure-ansible-devops-project/ansible-server_key.pem.pub") # Replace with the correct path to the public key
+    public_key = file("/home/saad/azure_keys/ansible-server_key.pem.pub") # Replace with the correct path to the public key
   }
 
   os_disk {
