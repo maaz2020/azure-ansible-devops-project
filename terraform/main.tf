@@ -125,7 +125,7 @@ resource "azurerm_linux_virtual_machine" "http_server" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("/home/saad/azure_keys/ansible-server_key.pem.pub") # Replace with the correct path to the public key
+    public_key = file("~/.ssh/id_rsa.pub") # Replace with the correct path to the public key
   }
 
   os_disk {
