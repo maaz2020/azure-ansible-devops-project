@@ -114,7 +114,7 @@ resource "azurerm_linux_virtual_machine" "http_server" {
   name                = "httpServerVM-${count.index}"
   resource_group_name = azurerm_resource_group.microservice.name
   location            = azurerm_resource_group.microservice.location
-  size                = "Standard B1s" # Equivalent to t2.micro in AWS
+  size                = "Standard_B2ms" # Equivalent to t2.micro in AWS
   admin_username      = "adminuser"
   # admin_password                  = "Maaz@1234"
   disable_password_authentication = true
