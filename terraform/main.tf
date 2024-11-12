@@ -13,7 +13,7 @@
 # Resource Group
 resource "azurerm_resource_group" "microservice" {
   name     = "microservice-resources"
-  location = "eastus"
+  location = "East US 2"
 }
 
 # Virtual Network
@@ -114,8 +114,7 @@ resource "azurerm_linux_virtual_machine" "http_server" {
   name                = "httpServerVM-${count.index}"
   resource_group_name = azurerm_resource_group.microservice.name
   location            = azurerm_resource_group.microservice.location
-  # size                = "Standard_B1s" # Equivalent to t2.micro in AWS
-  size = "Standard_B1ls"
+  size                = "Standard_B1s" # Equivalent to t2.micro in AWS
   admin_username      = "adminuser"
   # admin_password                  = "Maaz@1234"
   disable_password_authentication = true
