@@ -13,7 +13,7 @@
 # Resource Group
 resource "azurerm_resource_group" "microservice" {
   name     = "microservice-resources"
-  location = "East US 2"
+  location = "West US"
 }
 
 # Virtual Network
