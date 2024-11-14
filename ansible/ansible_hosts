@@ -3,4 +3,5 @@
 [dev]
 dev1 ansible_host=104.40.56.49 ansible_user=maazuser
 dev2 ansible_host=40.112.136.150 ansible_user=adminuser
+[qa]
 qa1 ansible_host=40.112.143.119 ansible_user=adminuser
