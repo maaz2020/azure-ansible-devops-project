@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- hosts: qa
   tasks: 
-    - name: Ping all servers
-      action: ping 
+    - name: Execute shell commands
+      shell: uname
+    - debug: msg="Hello"   
