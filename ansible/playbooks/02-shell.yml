@@ -1,6 +1,9 @@
 ---
 - hosts: qa
+  vars_files:
+    - variables.yml
+  vars:
+    variable1: "playbook value"  
   tasks: 
-    - name: Execute shell commands
-      shell: uname
-    - debug: msg="Hello"   
+    - name: Getting the variable value
+      debug: msg="{{ variable1  }}"   
